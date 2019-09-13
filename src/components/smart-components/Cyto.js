@@ -74,7 +74,6 @@ class CytoscapeContainer extends Component {
       const cy = cytoscape({container: document.getElementById('cyApp')});
 
       const intrnData = json.data.interactions;
-      console.log("JSON HERE \n \n", json)
       cyJSONLoad(cy, intrnData, freshLoad, this.context);
       this.context.setStoreState({},{},{cy, dataLoaded: intrnData});
     } catch (e) {

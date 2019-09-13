@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "formidable": "^1.2.1",
+    "fs": "0.0.1-security",
     "jquery": "^3.4.1",
     "lodash.difference": "^4.5.0",
     "normalize.css": "^8.0.1",

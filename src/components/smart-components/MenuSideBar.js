@@ -25,6 +25,8 @@ import klay from 'cytoscape-klay';
 //import polywas from "./polywas-layout.js";
 import 'jquery'; //maybe get rid of 
 import layoutButton from '../dummy-components/LayoutButton.js';
+import {loadJson, sif2Json} from "./sif2Json.js"
+import {cyJSONLoad} from '../../cytoscape/cytoscape-init';
 
 
 //cytoscape.use(polywas);
@@ -82,25 +84,30 @@ class MenuSideBar extends Component {
     element.click();
   }
 
-  //Copied! 
-  onChangeHandler=event=>{
-    this.setState({
-      selectedFile: event.target.files[0],
-      loaded: 0,
-    })
+  //Copied! https://stackoverflow.com/questions/44769051/how-to-upload-and-read-csv-files-in-react-js
+  //https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/
+  // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsBinaryString
+  //https://stackoverflow.com/questions/28658388/filereader-result-return-null
+  onChangeHandler= (event, cy, context) =>{ //ONLY TAKES A SINGLE FILE 
+    console.log("FILE UPLOAD", event.target.files[0]) 
+    var reader = new FileReader();
+    reader.readAsText(event.target.files[0]);
+    reader.onload = function(e) {
+      var string = reader.result;
+      var json = sif2Json(string)
+      console.log("CONVERTED TO JSON", json)
+      cy && cy.destroy();
+      console.log("destroyed") 
+      // /https://blog.js.cytoscape.org/2016/05/24/getting-started/
+      const cy2 = cytoscape({container: document.getElementById('cyApp'), elements: json.data.interactions});
+      console.log("cy2 made")
+      console.log("json interactions", json.data.interactions)
+      //cyJSONLoad(cy2, json.data.interactions, false)
+      //console.log("load json")
+      //context.setStoreState({},{},{cy2, dataLoaded: json.data.interactions})   
+      console.log("state") 
+    }
   }
-  onClickHandler = () => {
-    const data = new FormData()
-    data.append('file', this.state.selectedFile)
-    axios.post("http://localhost:8000/upload", data, { 
-       // receive two    parameter endpoint url ,form data
-   }).then(res => { // then print response status
-     console.log(res.statusText)
-  })
- }
-
- 
-
 
   render() {
     return (
@@ -197,8 +204,12 @@ class MenuSideBar extends Component {
         <button id="menuButton" onClick={()=>{
         }}>Import .Sif</button>
 
-        <input type="file" name="file" onChange={this.onChangeHandler}/>
-        <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button> 
+        <input type="file" accept='.sif' name="file" onChange={(event) => {
+          this.onChangeHandler(event, this.cy, this.context)
+          //})          //const cy = cytoscape({container: document.getElementById('cyApp')});
+          //cyJSONLoad(cy, json.data.interactions, false, this.context)
+          //this.context.setStoreState({},{},{cy, dataLoaded: json.data.interactions})      
+        }}/>
       </Menu>
     );
   }
