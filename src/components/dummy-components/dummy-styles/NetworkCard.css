@@ -1,0 +1,90 @@
+/* useful info for css grid:
+
+https://stackoverflow.com/questions/45459151/how-to-set-the-maximum-width-of-a-column-in-css-grid-layout
+
+https://www.rawkblog.com/2018/03/css-grid-understanding-grid-gap-and-fr-vs-auto-units/
+
+*/
+
+.ntwrk-cd > hr {
+  max-width: 75%;
+  height: 1px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-color: #000;
+  box-shadow: 4px 4px 6px rgba(0,0,0,.25);
+}
+
+@media screen and (min-width: 800px) {
+  .ntwrk-cd > hr {
+    width: 80%;
+  }
+}
+
+.ntwrk-cd-grid{
+  display: inline-grid;
+  grid-template-columns:
+    auto auto;
+  width: 100%;
+  grid-column-gap: 20px;
+  justify-content: space-between;
+}
+
+.netwrk-info > .ntwrk-cd-title, .netwrk-cd-desc {
+  text-align: right;
+  max-width: calc(100vw - 270px); /*i.e. full length of the column minus image-size(margin, image-size, grid-column-gap)*/
+}
+
+@media screen and (max-width: 800px) {
+  .netwrk-info > .ntwrk-cd-title, .netwrk-cd-desc  {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.netwrk-info > * {
+  font-family: Roboto, Helvetica, sans-serif;
+  padding-right: 10px;
+}
+
+.ntwrk-cd-img-circ{
+}
+
+.ntwrk-cd-title{
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.netwrk-cd-desc{
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  .ntwrk-cd-title{
+    font-size: 1.75rem;
+  }
+
+  .netwrk-cd-desc{
+    font-size: 1.25rem;
+  }
+}
+
+.netwrk-cd-tags-flxbx{
+  width: calc(100vw - 270px); /*i.e. full length of the column minus image-size(margin, image-size, grid-column-gap)*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.netwrk-cd-tag{
+  background-color: #E5E5E5; /* default colour */
+  padding: 3px 8px;
+  box-shadow: 4px 4px 6px rgba(0,0,0,.25);
+}
+
+.netwrk-cd-tag.Experiment {background-color: #f6f6ff;}
+.netwrk-cd-tag.Condition {background-color: #fcffda;}
+.netwrk-cd-tag.Gene {background-color: #ffece7;}
+.netwrk-cd-tag.Misc {background-color: #fafafa;}

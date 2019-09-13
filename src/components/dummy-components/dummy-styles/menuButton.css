@@ -1,0 +1,26 @@
+/* 
+menuButton.css
+Called in menuSideBar.js, styles buttons to delete nodes and download sif
+@author Rachel 
+*/
+
+#menuButton {
+    width: 60%;
+    color: #373a47;
+    background: #b8b7ad;
+    border: none;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 0px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.6s;
+  }
+  
+  
+  #menuButton:hover {
+    background:#97CB01;
+    color:#E6EAE5;
+  }

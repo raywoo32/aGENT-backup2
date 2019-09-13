@@ -1,0 +1,48 @@
+.logo-nm-slt-flxbx{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 7px 5px 0 5px;
+}
+
+.group-badge-GRN-list{
+  background-color : #EBECF0;
+  border-radius: 2em;
+  color: #172B4D;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  min-width: 1px;
+  padding: 0.16666666666667em 0.5em;
+  text-align: center;
+}
+
+.tag-groups-in-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tag-group-name {
+  font-size: 16px;
+  color: #1e1d25;
+}
+
+.rt-slt-chevron {
+  width: 15px;
+}
+
+.tags-react-select-container {
+  flex: 1;
+  max-width: 300px;
+  padding-top: 10px;
+}
+
+.react-select-option__placeholder  {
+  left: 22%;
+}
+
+.react-select-option__menu {
+  margin-top: 0 !important;
+  top: 75% !important;
+}

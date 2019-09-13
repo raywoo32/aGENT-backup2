@@ -1,0 +1,55 @@
+
+#### 1. Getting Project Working ####
+## 1.1 npm install react-scripts --save
+https://stackoverflow.com/questions/47928735/react-scripts-is-not-recognized-as-an-internal-or-external-command
+
+## 1.2 Install react search box
+-start in base wd
+npm install yarn --save
+cd node-modules
+cd react-search-box 
+npm install //installs from github link in package.json 
+cd .. 
+cd .. 
+npm run start 
+
+#### 2. Make Layout Buttons ####
+Files Changed:
+1. ~/agent-front-end-aug23\src\components\smart-components\MenuSideBar.js
+2. ~\agent-front-end-aug23\src\components\smart-components\smart-styles\MenuSideBar.css
+
+C:\Users\rwoo\Desktop\agent-front-end-aug23\src\components\dummy-components\BarLogo.js
+
+Resources:
+1. https://www.w3schools.com/css/css3_buttons.asp
+2. https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_shadow
+3. https://github.com/negomi/react-burger-menu
+4. https://www.edwardbeazer.com/importing-images-with-react/
+5. https://github.com/VinLau/AIV-v2-cytoscapeJS
+
+
+#### 3. Explore different Layouts ####
+1. http://js.cytoscape.org/#layouts
+2. https://stackoverflow.com/questions/31185865/cytoscape-js-change-layout-dynamically
+
+Make:
+a. cose Blinket 
+b. Spread
+c. Cerebral 
+
+INSTALLED: 
+npm install cytoscape-cose-bilkent --save 
+npm install cytoscape-spread --save 
+TODO: Decide which cerebral to use! 
+
+TODO: implement functions to change the layout in cytoscape-layout.js 
+
+Does cerebral make sense since there is not information about where the files are? 
+
+
+edge.data is of the form 
+{ id: "ppi_AT5G25890_AT3G15440", target: "AT5G25890", source: "AT3G15440", edgeType: "ppi", interaction_id: 106236, pearson_correlation_coeff: -0.054, entity_1: "at5g25890", entity_2: "at3g15440", interaction_type_id: 1 }
+
+Added AXOIS, 
+
+Cite: https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/
